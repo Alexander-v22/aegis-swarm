@@ -1,0 +1,15 @@
+# ESP-IDF build artifacts
+/build/
+sdkconfig
+sdkconfig.old
+*.bin
+*.elf
+*.map
+
+# Logs and Python cache
+*.log
+*.pyc
+__pycache__/
+
+# Secret credentials
+secrets.h
