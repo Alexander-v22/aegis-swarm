@@ -26,7 +26,7 @@ Project Aegis is designed as a modular ecosystem. Planned extensions include:
 
 - **Argus**: an AI-powered turret platform (Raspberry Pi + camera) for intruder detection and real-time tracking  
 - **Aegis–Argus Integration**: a combined system where Argus provides vision-based detection while Aegis bots swarm to investigate or intercept  
-- Expansion into lightweight aerial platforms to complement the ground units
+- Expansion into lightweight aerial platforms to complement the ground units (**Aether**)
 
 ---
 
