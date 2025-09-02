@@ -1,1 +1,1 @@
-idf_component_register(SRCS "aegis-swarm.c" INCLUDE_DIRS ".")
+idf_component_register(SRCS "aegis-swarm.cpp" INCLUDE_DIRS ".")
