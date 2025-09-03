@@ -5,8 +5,6 @@
 #include "driver/gpio.h"
 #include "esp_err.h"
 #include "esp_log.h"
-
-
 #include "esp_timer.h"
 #include "esp_mac.h"
 #include "sdkconfig.h"
@@ -52,7 +50,7 @@ uint32_t angle_to_ledc_counts(uint8_t angle){
 
         ledc_channel_config(&pan);
 
-        ESP_LOGI(TAG, "Servo initialized on GPIO %d (channel %d)", 
+        ESP_LOGI(TAG, "INITIALIZED ON GPIO %d (CHANNEL %d)", 
                 SERVO_PAN_GPIO, LEDC_CHANNEL_0);
 
 }
