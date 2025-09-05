@@ -13,8 +13,8 @@
 
 
 #define SERVO_PAN_GPIO 13
-#define SERVO_MAX_US 2500
-#define SERVO_MIN_US 1200
+#define SERVO_MAX_US 2500 // the max PWM singal range
+#define SERVO_MIN_US 1200// the mine PWm singal range
 
 #define SERVO_TIMER LEDC_TIMER_0
 #define SERVO_RES LEDC_TIMER_16_BIT
