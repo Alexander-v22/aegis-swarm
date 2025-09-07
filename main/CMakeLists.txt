@@ -4,7 +4,14 @@ idf_component_register(
     "servo.cpp"
     "ultrasonic.cpp"
     "pir.cpp"
-
+    "swarm.cpp"
   INCLUDE_DIRS "."
-  REQUIRES driver freertos esp_timer
+  PRIV_REQUIRES
+    esp_wifi
+    esp_event
+    esp_netif
+    freertos
+    driver
+    esp_timer
+    nvs_flash 
 )
