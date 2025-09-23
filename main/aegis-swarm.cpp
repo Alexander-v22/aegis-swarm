@@ -17,11 +17,6 @@
 #include "pir.h"
 #include "swarm.h"
 
-struct HeartbeatArgs {
-    uint32_t botA;
-    uint32_t botB;
-};
-
 static const char *TAG_OVERALL = "DATA";
 
 void pir_task(void* arg){
@@ -31,6 +26,10 @@ void pir_task(void* arg){
     }
 }
 
+struct HeartbeatArgs {
+    uint32_t botA;
+    uint32_t botB;
+};
 
 static void hb_task(void* arg) {
     auto* a = static_cast<HeartbeatArgs*>(arg);
@@ -56,17 +55,14 @@ extern "C" void app_main(void) {
     ultrasonic_init();
     pir_init();
 
-
     swarm_init(1);
 
-    vTaskDelay(pdMS_TO_TICKS(60000));
-    servo_update(90);
+    vTaskDelay(pdMS_TO_TICKS(60000));// PIR warm up 
 
     uint32_t botA = swarm_add_peer("6C:C8:40:8A:98:48"); // first Aegis bot 
     uint32_t botB = swarm_add_peer("6C:C8:40:8A:89:90");   // second Aegis bot’s MAC
-    // uint32_t botC = swarm_add_peer("24:6F:28:AA:BB:02");   // another
+    // uint32_t botC = swarm_add_peer("24:6F:28:AA:BB:02");   // third Aegis bot's MAC
     static HeartbeatArgs hb_args{botA, botB};
-
 
     const int samples = 5;            
     const int delay_ms = 70; 
@@ -81,7 +77,7 @@ extern "C" void app_main(void) {
            
             servo_update(pan);
             //giving the servo 0.2s (breathing room)
-            vTaskDelay(pdMS_TO_TICKS(200));
+                vTaskDelay(pdMS_TO_TICKS(200));
             float dist_cm = hcsr_read_cm_med(samples, delay_ms);
             if(dist_cm>3.0f){
                 ESP_LOGI(TAG_OVERALL, "pan=%3d°  distance=%.1f cm", pan, dist_cm);
